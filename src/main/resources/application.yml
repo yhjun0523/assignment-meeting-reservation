@@ -1,8 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/meetingdb
-    username: postgres
-    password: postgres
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  sql:
+    init:
+      mode: always    # 항상 초기화 스크립트 실행
+      data-locations: # data.sql 위치
+        - classpath:/data.sql
   jpa:
     hibernate:
       ddl-auto: update
@@ -10,6 +15,7 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
+    defer-datasource-initialization: true
   output:
     ansi:
       enabled: always
