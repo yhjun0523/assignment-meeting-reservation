@@ -1,4 +1,4 @@
-package com.yhjun.meeting_reservation;
+package com.yhjun.meetingreservation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MeetingReservationApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MeetingReservationApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MeetingReservationApplication.class, args);
+    }
 
 }
