@@ -40,7 +40,7 @@ docker-compose up --build
 
 API 명세 및 테스트는 Swagger UI에서 확인 가능합니다.
 
-- 주소: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+👉 **Swagger 접속 주소:** [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
 ---
 
@@ -53,6 +53,21 @@ API 명세 및 테스트는 Swagger UI에서 확인 가능합니다.
 ```
 
 JUnit 5 기반의 테스트가 작성되어 있으며, 예약 가능 여부 및 시간 충돌 검증 로직은 테스트를 통해 보장됩니다.
+
+---
+
+## 📌 주요 API 예시
+
+- 회의실 목록 조회: `GET /api/meeting-rooms`
+- 예약 생성: `POST /api/reservations`
+
+---
+
+## ❗ 예외 처리 정책
+
+- 잘못된 요청 (시작 > 종료 시간): `400 Bad Request`
+- 예약 중복: `409 Conflict`
+- 존재하지 않는 회의실/사용자 ID: `404 Not Found`
 
 ---
 
@@ -84,7 +99,7 @@ JUnit 5 기반의 테스트가 작성되어 있으며, 예약 가능 여부 및 
 ### ✅ 해결 방법:
 
 - **비관적 락 (PESSIMISTIC_WRITE)** 을 사용하여 동일 회의실에 대해 예약 변경 시점에 락을 걸어 교착 상태 방지
-- 트랜잭션 안에서 `@Lock(LockModeType.PESSIMISTIC_WRITE)` 또는 `FOR UPDATE` 쿼리로 선점
+- 트랜잭션 안에서 `@Lock(LockModeType.PESSIMISTIC_WRITE)`로 선점
 - 락 순서를 회의실 ID 기준으로 고정하여 교차 락 획득을 방지
 - 추가로 `@Transactional`을 활용해 원자성 보장
 
