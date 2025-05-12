@@ -44,8 +44,8 @@ class ReservationServiceTest {
     @BeforeEach
     void setUp() {
         reservationService = new ReservationService(reservationRepository, userRepository, entityManager);
-        user = userRepository.save(new User("tester", "tester@example.com"));
-        room = meetingRoomRepository.save(new MeetingRoom("Room A"));
+        user = userRepository.save(new User("양현준", "yhjun@example.com"));
+        room = meetingRoomRepository.save(new MeetingRoom("회의실 A"));
     }
 
     @Test

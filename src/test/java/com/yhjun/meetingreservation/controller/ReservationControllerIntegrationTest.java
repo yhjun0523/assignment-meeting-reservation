@@ -50,8 +50,8 @@ class ReservationControllerIntegrationTest {
         reservationRepository.deleteAll();
         userRepository.deleteAll();
         meetingRoomRepository.deleteAll();
-        user = userRepository.save(new User("integration", "intg@example.com"));
-        room = meetingRoomRepository.save(new MeetingRoom("Room B"));
+        user = userRepository.save(new User("양현준", "yhjun@example.com"));
+        room = meetingRoomRepository.save(new MeetingRoom("회의실 A"));
     }
 
     @Test
